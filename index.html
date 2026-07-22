@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Fidel ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+
+background:
+linear-gradient(135deg,#ffdde1,#fff5f5,#ffd6e8);
+
+}
+
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:35px 35px;
+opacity:.4;
+animation:twinkle 6s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:.6;}
+}
+
+.container{
+
+position:relative;
+z-index:10;
+
+background:rgba(255,255,255,.88);
+
+backdrop-filter:blur(8px);
+
+padding:50px;
+
+border-radius:35px;
+
+text-align:center;
+
+max-width:700px;
+
+box-shadow:0 20px 50px rgba(255,0,90,.25);
+
+}
+
+h1{
+
+font-size:55px;
+
+color:#d4004f;
+
+margin-bottom:25px;
+
+}
+
+.message{
+
+font-size:30px;
+
+line-height:1.6;
+
+color:#6d0030;
+
+min-height:170px;
+
+}
+
+.signature{
+
+margin-top:40px;
+
+font-size:28px;
+
+color:#d4004f;
+
+font-style:italic;
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:28px;
+
+animation:float 8s linear infinite;
+
+opacity:.8;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(100vh) scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.5);
+
+opacity:0;
+
+}
+
+}
+
+.rose{
+
+position:absolute;
+
+font-size:38px;
+
+animation:fall 12s linear infinite;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-120px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+}
+
+}
+
+.stars{
+
+position:absolute;
+
+top:25px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:26px;
+
+letter-spacing:10px;
+
+color:gold;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:translateX(-50%) scale(1.2);
+
+}
+
+}
+
+.kisses{
+
+position:absolute;
+
+bottom:20px;
+
+right:20px;
+
+font-size:36px;
+
+animation:kiss 3s infinite;
+
+}
+
+@keyframes kiss{
+
+50%{
+
+transform:scale(1.3);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars">
+⭐ ✨ ⭐ ✨ ⭐
+</div>
+
+<div class="container">
+
+<h1>Fidel ❤️</h1>
+
+<div class="message" id="typing"></div>
+
+<div class="signature">
+
+— Jemima ❤️
+
+</div>
+
+</div>
+
+<div class="kisses">
+💋 💋
+</div>
+
+<script>
+
+const text="I love you so much and I can not wait to spend the rest of my life with you.";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,55);
+
+}
+
+}
+
+type();
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤️","💕","💖","💗"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(6+Math.random()*5)+"s";
+
+heart.style.fontSize=(18+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),11000);
+
+}
+
+setInterval(createHeart,400);
+
+function createRose(){
+
+const rose=document.createElement("div");
+
+rose.className="rose";
+
+rose.innerHTML="🌹";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.animationDuration=(8+Math.random()*5)+"s";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>rose.remove(),14000);
+
+}
+
+setInterval(createRose,1200);
+
+</script>
+
+</body>
+</html>
